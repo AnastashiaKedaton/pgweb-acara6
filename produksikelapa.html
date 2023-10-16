@@ -53,7 +53,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Jumlah Penduduk</h5>
+                <h5>Produksi Kelapa</h5>
             </div>
             <div class="card-body">
                 <div id="chart"></div>
@@ -99,68 +99,40 @@
 
     <script>
         var options = {
-            series: [{
-                name: 'Jumlah Penduduk',
-                data: [6123, 2154, 3679, 7159, 3617, 1223, 2610, 5595, 4649, 1180, 3070, 2473, 1865, 3044, 6062, 1808, 56311]
-            }],
-            chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded',
-                    dataLabels: {
-                        position: 'top',
-                    }
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: ['Silaing Bawah', 'Silaing Atas', 'Pasar Usang', 'Kampung Manggis', 'Tanah Hitam', 'Pasar Baru', 'Bukit Surungan', 'Balai-Balai', 'Koto Panjang', 'Koto Katik', 'Ngalau', 'Ekor Lubuk', 'Sigando', 'Ganting', 'Guguk Malintang', 'Tanah Pak Lambik'],
-                title: {
-                    text: 'Kelurahan'
-                }
-            },
-            yaxis: {
-                title: {
-                    text: '$ (thousands)'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return val + " Jiwa"
-                    }
-                }
-            },
-            dataLabels: {
-                enabled: true,
-                formatter: function (val) {
-                    return val;
-                },
-                offsetY: -20,
-                style: {
-                    fontSize: '12px',
-                    colors: ["#304758"]
-                }
-            },
+          series: [{
+            name: "Produksi Kelapa",
+            data: [4.20, 2.90, 3.10]
+        }],
+          chart: {
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        title: {
+          text: 'Produksi Kelapa dalam Satuan Kwintal',
+          align: 'left'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+          categories: ['2019', '2020', '2021'],
+        }
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
+        chart.render();
 
     </script>
 </body>

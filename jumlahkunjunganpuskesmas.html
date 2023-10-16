@@ -36,6 +36,9 @@
                             <li><a class="dropdown-item" href="index.html">Jumlah Penduduk</a></li>
                             <li><a class="dropdown-item" href="pendudukjeniskelamin.html">Penduduk Menurut Jenis
                                     Kelamin</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="kondisijalan.html">Kondisi Jalan</a></li>
                             <li><a class="dropdown-item" href="produksikelapa.html">Produksi Kelapa</a></li>
                             <li><a class="dropdown-item" href="jumlahkunjunganpuskesmas.html">Jumlah Kunjungan Puskesmas</a></li>
@@ -53,7 +56,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Jumlah Penduduk</h5>
+                <h5>Jumlah Kunjungan Puskesmas</h5>
             </div>
             <div class="card-body">
                 <div id="chart"></div>
@@ -98,65 +101,33 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        var options = {
-            series: [{
-                name: 'Jumlah Penduduk',
-                data: [6123, 2154, 3679, 7159, 3617, 1223, 2610, 5595, 4649, 1180, 3070, 2473, 1865, 3044, 6062, 1808, 56311]
-            }],
+         var options = {
+          series: [909, 955, 1045, 922, 798, 932, 1151, 872, 988, 1097, 1141, 2177],
+          chart: {
+          type: 'polarArea',
+        },
+        stroke: {
+          colors: ['#fff']
+        },
+        title: {
+          text: 'Jumlah Kunjungan pada Puskesmas (Jiwa)',
+          align: 'left'
+        },
+        fill: {
+          opacity: 0.8
+        },
+        labels: ['Januari', ' Februari', ' Maret', ' April', ' Mei', ' Juni', ' Juli', ' Agustus', ' September', ' Oktober', ' November', ' Desember'],
+        responsive: [{
+          breakpoint: 180,
+          options: {
             chart: {
-                type: 'bar',
-                height: 350
+              width: 50
             },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded',
-                    dataLabels: {
-                        position: 'top',
-                    }
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: ['Silaing Bawah', 'Silaing Atas', 'Pasar Usang', 'Kampung Manggis', 'Tanah Hitam', 'Pasar Baru', 'Bukit Surungan', 'Balai-Balai', 'Koto Panjang', 'Koto Katik', 'Ngalau', 'Ekor Lubuk', 'Sigando', 'Ganting', 'Guguk Malintang', 'Tanah Pak Lambik'],
-                title: {
-                    text: 'Kelurahan'
-                }
-            },
-            yaxis: {
-                title: {
-                    text: '$ (thousands)'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return val + " Jiwa"
-                    }
-                }
-            },
-            dataLabels: {
-                enabled: true,
-                formatter: function (val) {
-                    return val;
-                },
-                offsetY: -20,
-                style: {
-                    fontSize: '12px',
-                    colors: ["#304758"]
-                }
-            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
